@@ -1,0 +1,151 @@
+import React, { useState, useEffect } from "react";
+import { IoMdAdd } from "react-icons/io";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { BiMessageSquareEdit } from "react-icons/bi";
+import { HiOutlineInformationCircle } from "react-icons/hi";
+import { Avatar } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+// import { imageUrl } from "../../../global/config";
+// import { useEventStore } from "./store";
+// import { IEventDataDetail } from "./interface";
+// import DeleteConfirmModel from "./components/delete-confirm-model";
+import { adminLayoutStore } from "../../layout/store";
+import { useViewCourseStore } from "./store";
+import { ICourseDetails } from "./interface";
+const Courses = () => {
+  const navigate = useNavigate();
+  // store
+  const setActiveUrl = adminLayoutStore((state: any) => state.setActiveUrl);
+
+  const getCourses = useViewCourseStore((state: any) => state.getCourses);
+  const setUpdateData = useViewCourseStore(
+    (state: any) => state.setUpdateCourseData
+  );
+  const courses: ICourseDetails[] = useViewCourseStore(
+    (state: any) => state.courses
+  );
+  // states
+  // delete notice states
+  const [openDelete, setOpenDelete] = useState(false);
+  const [deleteEvent, setDeleteEvent] = useState<ICourseDetails>(
+    {} as ICourseDetails
+  );
+  // handlers
+  const deleteClick = (data: ICourseDetails) => {
+    setOpenDelete(true);
+    setDeleteEvent(data);
+  };
+  const updateClick = (data: ICourseDetails) => {
+    setUpdateData(data);
+    // navigate(`/admin/update-event/${data.id}`);
+  };
+  useEffect(() => {
+    setActiveUrl(window.location.pathname);
+  }, [setActiveUrl]);
+  // fetching notices from server
+  useEffect(() => {
+    getCourses();
+  }, [getCourses]);
+  return (
+    <>
+      <div className="">
+        <p className="mt-3 ml-5 text-[1.05rem] sm:text-[1.2rem] font-semibold">
+          Events
+        </p>
+        <div className="">
+          <div className="flex justify-end pr-[2em]">
+            <button
+              className="border text-[.9rem] md:text-[1rem] px-[1.5em] py-2 md:py-3 rounded-sm font-semibold 
+           text-[#595959] hover:text-[#2e2e2e] hover:shadow-md flex items-center gap-x-1"
+              onClick={() => {
+                navigate("/admin/add-course");
+              }}
+            >
+              <IoMdAdd className="text-[1.1rem]" />
+              <span>Add</span>
+            </button>
+          </div>
+          <div className="px-3">
+            <table className="w-full mt-4">
+              <thead>
+                <tr>
+                  <th className="border px-2 md:px-4 py-2 text-[.9rem] sm:text-[1rem]">
+                    SN
+                  </th>
+                  <th className="border px-4 py-2 text-[.9rem] sm:text-[1rem]">
+                    Title
+                  </th>
+                  <th className="border px-4 py-2 text-[.9rem] sm:text-[1rem]">
+                    Description
+                  </th>
+                  <th className="border px-4 py-2 text-[.9rem] sm:text-[1rem]">
+                    Tagline
+                  </th>
+                  <th className="border px-4 py-2 text-[.9rem] sm:text-[1rem]">
+                    Duration
+                  </th>
+                  <th className="border px-4 py-2 hidden md:block text-[.9rem] sm:text-[1rem]">
+                    Criteria
+                  </th>
+                  <th className="border px-4 py-2 text-[.9rem] sm:text-[1rem]">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {courses?.length > 0 ? (
+                  courses.map((event: ICourseDetails, index: number) => (
+                    <tr key={event.id}>
+                      <td className="px-4 border">{index + 1}</td>
+                      <td className="px-4 border">{event.title}</td>
+                      <td className="px-3 border">
+                        {event?.description?.substring(0, 20)}...
+                      </td>
+                      <td className="px-4 py-2 border">
+                        <div className="flex items-center justify-center gap-x-1">
+                          <HiOutlineInformationCircle
+                            className="text-[1.25rem] cursor-pointer text-blue-700/80"
+                            // title={`view ${event.title}`}
+                          />
+                          <RiDeleteBin6Line
+                            className="text-[red]/70 text-[1.2rem] cursor-pointer"
+                            title={`delete ${event.title}`}
+                            // onClick={() => deleteClick(event)}
+                          />
+                          <BiMessageSquareEdit
+                            className="text-[1.2rem] cursor-pointer text-green-700/80"
+                            title={`update ${event.title}`}
+                            // onClick={() => updateClick(event)}
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr className="">
+                    <td
+                      colSpan={7}
+                      className="border px-4 text-[.9rem] sm:text-[1rem] text-center font-semibold py-4 "
+                    >
+                      No courses found
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      {/* {Object.keys(deleteEvent).length > 0 && (
+        <DeleteConfirmModel
+          openDelete={openDelete}
+          setOpenDelete={setOpenDelete}
+          data={deleteEvent}
+          setData={setDeleteEvent}
+        />
+      )} */}
+    </>
+  );
+};
+
+export default Courses;

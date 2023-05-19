@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+} */
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* hide scroll bar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  width: 500px;
+  height: 250px;
+  perspective: 900px;
+}
+
+.container:hover > .card {
+  cursor: pointer;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+.card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+  -webkit-transition: transform 1500ms;
+  -moz-transition: transform 1500ms;
+  -ms-transition: transform 1500ms;
+  -o-transition: transform 1500ms;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  /* border-radius: 2rem; */
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.back {
+  background-color: #3a3a3a;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rhombus{
+clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+
+}
+
+
+@keyframes rotate-vert-center {
+  0% {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+.logo-container {
+  perspective: 900px;
+}
+.logo-card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+  -webkit-transition: transform 1500ms;
+  -moz-transition: transform 1500ms;
+  -ms-transition: transform 1500ms;
+  -o-transition: transform 1500ms;
+    animation: rotate-vert-center 5s linear infinite;
+  -webkit-animation: rotate-vert-center 5s linear infinite;
+}
+.logo-front,
+.logo-back {
+  height: 100%;
+  width: 100%;
+  border-radius:50%;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
+  -ms-border-radius:50%;
+  -o-border-radius:50%;
+}
+.logo-back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+
+@keyframes burns-top {
+  0% {
+            -webkit-transform: scale(1) translateY(0);
+            transform: scale(1) translateY(0);
+            -webkit-transform-origin: 50% 16%;
+            transform-origin: 50% 16%;
+            -moz-transform: scale(1) translateY(0);
+            -ms-transform: scale(1) translateY(0);
+            -o-transform: scale(1) translateY(0);
+}
+  100% {
+            -webkit-transform: scale(1.1) translateY(-15px);
+            transform: scale(1.1) translateY(-15px);
+            -webkit-transform-origin: top;
+            transform-origin: top;
+            -moz-transform: scale(1.1) translateY(-15px);
+            -ms-transform: scale(1.1) translateY(-15px);
+            -o-transform: scale(1.1) translateY(-15px);
+}
+}
+
+.burns{
+ animation: burns-top 5s ease-out both;
+ -webkit-animation: burns-top 5s ease-out both;
+}
+.map{
+  border: 0;
+  
+
+
+
+
+}
+.map:focus{
+  
+
+
+  
+}
+.contactForm{
+margin-left: 50em;
+
+}
+
+.call{
+  margin-top: 5em;
+  margin-left: 10em;
+  font-size: 1.2rem;
+  
+}
+
+@media (min-width: 1080px) {
+ .content  {
+
+  margin-top: 1.5em;
+margin-right: 10em;
+margin-left: 12em;
+
+}
+
+.content1  {
+
+  margin-top: 1.6em;
+margin-right: 10em;
+margin-left: 12em;
+
+}
+.location{
+ margin-top: 5em;
+  margin-left: 10em;
+  font-size: 1.2rem;
+}
+.service{
+   margin-top: 6em;
+  margin-left: 9em;
+  font-size: 1.2rem;
+
+}
+
+}
+  @media (min-width:460px) {
+    
+    
+  }
