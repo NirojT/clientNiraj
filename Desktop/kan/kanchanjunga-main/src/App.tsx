@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       <Routes>
+        {/* ok */}
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Layout />}>
