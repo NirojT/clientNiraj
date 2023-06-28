@@ -1,0 +1,32 @@
+import { AiFillHeart } from "react-icons/ai";
+const FavoriteItemCard = () => {
+  return (
+    <>
+      <div className="flex p-2 shadow gap-x-3 h-[6em] items-center hover:shadow-md hover:translate-y-[-.25rem] transition-[.75s] hover:border-t cursor-pointer">
+        {/* image of the item */}
+        <img
+          src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+          alt=""
+          className="h-[4em] w-[4em] rounded object-cover border"
+        />
+        {/* image of the item ends here */}
+        <div className="flex flex-col justify-between gap-y-3">
+          {/* name and price of the item */}
+          <div className="leading-[1.25rem] font-semibold text-[#585858]  text-[.9rem] sm:text-[.8rem] md:text-[.9rem] lg:text-[.8rem] xl:text-[.9rem]">
+            <p>Lorem ipsum dolor sit.</p>
+            <p>Rs. 400</p>
+          </div>
+          {/* name and price of the item ends here */}
+          {/* number of times the item is served */}
+          <div className="flex items-center text-red-400 gap-x-1">
+            <AiFillHeart className="" />
+            <span className="text-[.6rem] font-semibold">200 served</span>
+          </div>
+          {/* number of times the item is served ends here */}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default FavoriteItemCard;
