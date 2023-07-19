@@ -1,0 +1,41 @@
+package Kanchanjunga.ServiceImpl;
+
+import java.util.List;
+import java.util.UUID;
+
+import Kanchanjunga.Entity.Users;
+import Kanchanjunga.Services.UsersService;
+
+public class UsersServiceImpl implements UsersService {
+
+	@Override
+	public String createUser(Users users) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteUser(UUID id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateUser(Users users, UUID id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Users> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Users getUserByID(UUID id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

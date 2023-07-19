@@ -1,0 +1,83 @@
+package Kanchanjunga.ServiceImpl;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.List;
+import java.util.UUID;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import Kanchanjunga.KanchanjungaApplication;
+import Kanchanjunga.Dto.FoodMenuDto;
+import Kanchanjunga.Entity.FoodMenu;
+import Kanchanjunga.Reposioteries.FoodMenuRepo;
+
+@Service
+public class FoodMenuServiceImpl implements Kanchanjunga.Services.FoodMenuService {
+
+	@Autowired
+	private FoodMenuRepo foodMenuRepo;
+
+	@Autowired
+	private ModelMapper mapper;
+
+	@Override
+	public Boolean createFoodMenu(FoodMenuDto foodMenuDto) {
+		try {
+			foodMenuDto.setId(UUID.randomUUID());
+			FoodMenu createFoodMenu = this.mapper.map(foodMenuDto, FoodMenu.class);
+
+			String filename = foodMenuDto.getImage().getOriginalFilename();
+			String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static";
+			Path paths = Paths.get(uploadDir);
+			if (!Files.exists(paths)) {
+				Files.createDirectories(paths);
+			}
+			Path imagePath = paths.resolve(filename);
+			try (InputStream inputStream = foodMenuDto.getImage().getInputStream()) {
+				Files.copy(inputStream, imagePath, StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+				throw new RuntimeException("Fail to save file " + filename, e);
+			}
+			createFoodMenu.setImage(KanchanjungaApplication.SERVERURL + filename);
+			this.foodMenuRepo.save(createFoodMenu);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean updateFoodMenu(UUID id, String name, String price, String category, String description,
+			MultipartFile image, String imageName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean deleteFoodMenu(UUID id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FoodMenu> getAllFoodMenu() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FoodMenu getFoodMenuByID(UUID id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

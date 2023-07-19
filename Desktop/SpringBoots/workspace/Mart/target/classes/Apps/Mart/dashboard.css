@@ -1,0 +1,40 @@
+.top-form{
+	-fx-background-color:#fff;
+	-fx-border-color:#000;
+	-fx-border-width:0.4px 0.4px 0.2px 0.4px;
+}
+.semi-top-form{
+	-fx-background-color:#efefef;
+	-fx-border-color:#000;
+	-fx-border-width:0.2px 0.4px 0.8px 0.4px;
+}
+.nav-form{
+	-fx-background-color: linear-gradient(to bottom right, #b49b37, #2a61a9);
+	
+}
+.nav-btn{
+	-fx-background-color:transparent;
+	-fs-cursor:hand;
+	-fx-text-fill:#fff;
+	-fx-font-size:14.0px;
+	-fx-font-family:"Arial";
+	
+}
+.logout-btn{
+	-fx-background-color:#b49b37;
+	-fx-cursor:hand;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

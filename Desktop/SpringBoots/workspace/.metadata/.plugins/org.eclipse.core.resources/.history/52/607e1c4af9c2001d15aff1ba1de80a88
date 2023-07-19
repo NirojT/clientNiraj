@@ -1,0 +1,35 @@
+package angularBoot.security;
+
+import java.awt.RenderingHints.Key;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.security.config.annotation.rsocket.RSocketSecurity.JwtSpec;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
+
+import angularBoot.entities.User;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+
+@Service
+public class JwtProvider{
+	
+	
+	private Key key;
+	
+	@PostConstruct
+	public void init() {
+		key=(Key) Keys.secretKeyFor(SignatureAlgorithm.HS512;
+		
+	}
+	
+	public String generateToken(Authentication authentication) {
+		
+		User principal=(User)authentication.getPrincipal();
+		return Jwts.builder().setSubject(principal.getName()).signWith(Keys.secretKeyFor(SignatureAlgorithm.HS512)).compact();
+		
+	}
+
+}

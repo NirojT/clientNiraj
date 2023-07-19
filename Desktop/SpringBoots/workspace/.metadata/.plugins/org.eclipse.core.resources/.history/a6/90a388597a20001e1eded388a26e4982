@@ -1,0 +1,10 @@
+package Kanchanjunga.Entity;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "employee")
+public class Staffs {
+
+	private int id;
+	private String name;
+}

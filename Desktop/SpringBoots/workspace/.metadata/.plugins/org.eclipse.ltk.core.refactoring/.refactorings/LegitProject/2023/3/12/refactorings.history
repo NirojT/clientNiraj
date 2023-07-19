@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Legit.entities.Posts.java&apos; to &apos;Post.java&apos;&#x0D;&#x0A;- Original project: &apos;LegitProject&apos;&#x0D;&#x0A;- Original element: &apos;Legit.entities.Posts.java&apos;&#x0D;&#x0A;- Renamed element: &apos;Legit.entities.Post.java&apos;" description="Rename compilation unit &apos;Posts.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;Legit.entities{Posts.java" name="Post.java" references="false" stamp="1679461464857" version="1.0"/>
+</session>

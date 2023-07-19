@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Apps.Mart.FxmlController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="439.0" prefWidth="609.0">
+         <children>
+            <AnchorPane layoutY="-1.0" prefHeight="439.0" prefWidth="315.0" styleClass="left-form" stylesheets="@login.css">
+               <children>
+                  <Label layoutX="107.0" layoutY="233.0" text="Sitoula Shopping Center" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="83.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/cart.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="admin_form" layoutX="315.0" layoutY="-1.0" prefHeight="439.0" prefWidth="295.0" styleClass="right-form" stylesheets="@login.css" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="-1.0">
+               <children>
+                  <Label layoutX="69.0" layoutY="169.0" styleClass="login.css" text="Admin sign in" textFill="#b7a540" wrapText="true" />
+                  <TextField fx:id="admin_username" accessibleHelp="username" layoutX="59.0" layoutY="207.0" maxWidth="100.0" prefHeight="30.0" promptText="username" styleClass="textfield" stylesheets="@login.css" />
+                  <PasswordField fx:id="admin_password" layoutX="59.0" layoutY="269.0" maxWidth="100.0" prefHeight="30.0" promptText="password" styleClass="textfield" stylesheets="@login.css" />
+                  <Button fx:id="admin_loginBtn" layoutX="83.0" layoutY="341.0" mnemonicParsing="false" onAction="#adminLogin" style="-fx-background-color: skyblue;" text="Login" />
+                  <Hyperlink fx:id="admin_hyperlink" layoutX="37.0" layoutY="399.0" onAction="#switchForm" text="Login employee!! Account?" textOverrun="LEADING_ELLIPSIS" underline="true">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Hyperlink>
+                  <ImageView fitHeight="100.0" fitWidth="118.0" layoutX="50.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/admin.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="241.0" layoutY="-2.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: red;" text="X" />
+               </children>
+            </AnchorPane>
+             <!--   start -->
+            <AnchorPane fx:id="employee_form" layoutX="325.0" layoutY="10.0" prefHeight="439.0" prefWidth="290.0" styleClass="right-form" stylesheets="@login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+              
+                  <Label layoutX="69.0" layoutY="169.0" styleClass="login.css" text="Employee sign in" textFill="#b7a540" wrapText="true" />
+                  <TextField fx:id="employee_id" accessibleHelp="username" layoutX="59.0" layoutY="207.0" maxWidth="100.0" prefHeight="30.0" promptText="Employee Id" styleClass="textfield" stylesheets="@login.css" />
+                  <PasswordField fx:id="employee_password" layoutX="59.0" layoutY="269.0" maxWidth="100.0" prefHeight="30.0" promptText="password" styleClass="textfield" stylesheets="@login.css" />
+                  <Button fx:id="employee_loginBtn" layoutX="83.0" layoutY="341.0" mnemonicParsing="false" onAction="#employeeLogin" text="Login" />
+                  <Hyperlink fx:id="employee_hyperlink" layoutX="37.0" layoutY="399.0" onAction="#switchForm" text="Login Admin!! Account?" textOverrun="LEADING_ELLIPSIS" underline="true">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Hyperlink>
+                  <Button layoutX="236.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: red;" text="X" />
+                  <ImageView fitHeight="100.0" fitWidth="92.0" layoutX="69.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/avatar.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+              <!--  end  -->
+         </children></AnchorPane>
+   </children>
+</StackPane>

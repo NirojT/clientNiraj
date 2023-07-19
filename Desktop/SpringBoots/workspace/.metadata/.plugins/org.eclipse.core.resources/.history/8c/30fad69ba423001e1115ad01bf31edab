@@ -1,0 +1,5 @@
+package Kanchanjunga.Dto;
+
+public class DrinkMenuDto {
+
+}

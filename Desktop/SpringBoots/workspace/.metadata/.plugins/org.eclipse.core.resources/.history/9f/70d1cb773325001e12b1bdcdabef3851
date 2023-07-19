@@ -1,0 +1,20 @@
+package Kanchanjunga.Services;
+
+import java.util.List;
+import java.util.UUID;
+
+import Kanchanjunga.Dto.DrinkMenuDto;
+import Kanchanjunga.Entity.DrinkMenu;
+import Kanchanjunga.Entity.Users;
+
+public interface DrinkMenuService {
+    Boolean createMenuDrinks(DrinkMenuDto data);
+
+    Boolean updateMenuDrinks(DrinkMenuDto data, UUID id);
+
+    Boolean deleteMenuDrinks(UUID id);
+
+    List<DrinkMenu> getAllDrinksMenu();
+
+    DrinkMenu getDrinkMenuByID(UUID id);
+}

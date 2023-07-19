@@ -1,0 +1,5 @@
+package Kanchanjunga.ErrorHandlers;
+
+public class ResourceNotFound extends RuntimeException{
+
+}

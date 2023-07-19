@@ -1,0 +1,5 @@
+package com.Buffers.Exception;
+
+public class GlobalExceptionHandler {
+
+}
